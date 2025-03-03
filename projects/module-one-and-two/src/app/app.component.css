@@ -1,0 +1,67 @@
+
+.container {
+  display: grid;
+  align-items: center; 
+  /* grid-template-columns: 0fr 0.05fr 1fr; */
+  column-gap: 5px;
+ }
+
+ .demo-inline-calendar-card {
+  width: 100px;
+}
+
+  
+  /* @media (min-width: 768px) {
+    main {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    #users {
+      flex-direction: column;
+    }
+  
+    #fallback {
+      font-size: 1.5rem;
+      text-align: left;
+    }
+  }  */
+
+  /* main {
+    width: 90%;
+    max-width: 50rem;
+    margin: 2.5rem auto;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 2rem;
+  }
+
+  
+
+  .table-responsive {
+    width: 500px !important;
+    height: 200px !important;
+  }
+
+  #fallback {
+    font-weight: bold;
+    font-size: 1.15rem;
+    margin: 0;
+    text-align: center;
+  } */
+
+  #users {
+    font-size: medium;
+    list-style: none;
+    margin-left: 50px;
+    padding: 0;
+    gap: 0.5rem;
+    width: 55px;
+    display: grid;
+  }
+
+  img {
+    align-items: left;
+    width: 3.5rem;
+    object-fit: contain;
+    cursor: pointer;
+  }

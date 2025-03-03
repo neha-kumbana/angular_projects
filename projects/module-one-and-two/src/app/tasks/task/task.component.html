@@ -1,0 +1,28 @@
+<!-- @if(isEditTask){
+    <app-update-task [task]="task" (close)="onCloseTab()"></app-update-task>
+} -->
+<!-- <section id="tasks" *ngIf="!isEditTask; else newTaskTemplate"> -->
+    <article (click)="onClick()" >
+        <h4>{{task.title}}</h4>
+        <time>{{ task.dueDate | date:'fullDate' }}</time>
+        <!-- <p>{{task.summary}}</p> -->
+        <div class="form-check">
+            <mat-checkbox (change)="oncheck($event, task)" [checked]="task.checked" [disabled]="isDisabled"></mat-checkbox>
+        </div>
+        <!-- <p class="actions">
+            
+            <button (click)="onCompleted()">Completed</button>
+        </p> -->
+    </article>
+<!-- </section>
+<ng-template #newTaskTemplate>
+    <app-update-task [task]="task" (close)="onCloseTab()"></app-update-task>
+</ng-template> -->
+
+
+<!-- <div class="task-item">
+    <label class="task-label">
+        <input type="checkbox" class="task-checkbox" />
+        <span class="task-text">{{task.title}}</span>
+    </label>
+</div> -->

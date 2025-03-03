@@ -1,0 +1,102 @@
+<!-- @if(isAddingTask){
+    <app-new-task [userId]="userId" (close)="onCloseAddTask()"></app-new-task>
+} -->
+<div class="col-md-7">
+
+
+<section id="tasks" *ngIf="!isAddingTask; else newTaskTemplate">
+    <header>
+        <h2>{{name}}</h2>
+        <menu>
+            <button type="button" class="btn btn-link" style="text-decoration: none !important;" (click)="onStartAddTask()">Add Task</button>
+            <!-- <button (click)="onStartAddTask()">Add Task</button> -->
+            <button type="button" class="btn btn-link" style="text-decoration: none !important;" (click)="onCompletedTask()">Completed Task</button>
+            <button type="button" class="btn btn-link" style="text-decoration: none !important;" (click)="onPendingTask()">Pending Task</button>
+        </menu>
+    </header>
+    <!-- <section *ngIf="isCompletedTask">
+        <ul>
+            @for(task of completedTask; track task.id){
+                <li>
+                    @if(task.checked == true){
+                    <app-task [task]="task" (click)="onClick($event)" [isDisabled]="task.checked"></app-task>
+                    }
+                </li>
+            }
+        </ul>
+        
+    </section> -->
+    @if(!isEditTask && !isCompletedTask){
+        <section>
+            <ul>
+                @for(task of selectedUserTasks; track task.id){
+                    <li>
+                        @if(task.checked !== true){
+                        <app-task [task]="task" (click)="onClick($event)"></app-task>
+                        }
+                    </li>
+                }
+            </ul>
+            
+        </section>
+    } @else if (isCompletedTask) {
+        <ul>
+            @for(task of completedTask; track task.id){
+                <li>
+                    @if(task.checked == true){
+                    <app-task [task]="task" [isDisabled]="task.checked"></app-task>
+                    }
+                </li>
+            }
+        </ul>
+    }
+    @else if (isEditTask) {
+        <app-update-task [task]="task" (close)="onCloseTab()"></app-update-task>
+    } @else if (isPendingTask){
+        <ul>
+            @for(task of selectedUserTasks; track task.id){
+                <li>
+                    @if(task.checked != true){
+                    <app-task [task]="task" (click)="onClick($event)"></app-task>
+                    }
+                </li>
+            }
+        </ul>
+    } @else if (selectedDateFlag) {
+        <ul>
+            @for(task of completedDateTasks; track task.id){
+                <li>
+                    <app-task [task]="task" (click)="onClick($event)"></app-task> 
+                </li>
+            }
+        </ul>
+    }
+    <!-- <ng-template #completedTaskTemplate>
+        <ul>
+            @for(task of completedTask; track task.id){
+                <li>
+                    <app-task [task]="task"></app-task>
+                </li>
+            }
+        </ul>
+    </ng-template> -->
+    
+    <!-- <section *ngIf="isCompletedTask">
+        <ul>
+            @for(task of selectedUserTasks; track task.id){
+                <li>
+                    
+                    <app-task [task]="task"></app-task>
+                </li>
+            }
+        </ul>
+    </section> -->
+</section>
+</div>
+<!-- <div class="col-md-5">
+    <mat-calendar style="margin-top: -42px !important;" [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
+</div> -->
+<ng-template #newTaskTemplate>
+    <app-new-task [userId]="userId" (close)="onCloseAddTask()"></app-new-task>
+</ng-template>
+

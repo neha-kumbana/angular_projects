@@ -1,0 +1,38 @@
+
+  
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.5rem;
+    background-color: rgb(56, 56, 219);
+    color: black;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    width: 100%;
+    min-width: 15rem;
+    text-align: left;
+    min-height: 4rem;
+  }
+  
+  button:hover,
+  button:active,
+  .active {
+    background-color: rgb(117, 117, 232);
+    color: #150722;
+  }
+  
+  img {
+    width: 2rem;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  span {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: normal;
+  }
